@@ -75,50 +75,7 @@ public class TestClass
 	}
 }
 ==========================================
-code :
-import java.io.*;
-import java.util.*;
-class Average
-{
-   Scanner s =new Scanner(System.in);
-   int[] arr = new int[5];
-  float average;
-  int sum;
-  public void Getmarks()
-  {
-   
-   for(int i = 0 ;i<5;i++)
-   {
-       arr[i]=s.nextInt();
-   }
-  }
-   public void displayPercentage()
-   {
-       for(int i = 0 ;i<5;i++)
-   {
-        
-       sum +=arr[i];
-   }
-       average = (float)sum / 5;
-       System.out.printf("%.1f",average);
-       System.out.println();
-         System.out.printf("%.1f",average);
-       System.out.print("%");
-   }
-   
- 
-}
-public class TestClass 
-{
-   public static void main(String[] args) 
-	{ 
-		Average obj = new Average();
-		obj.Getmarks();
-		obj.displayPercentage();
-	  
-	    
-	}
-}
+
 ===================================================
 
 Q. 42: Student grade
