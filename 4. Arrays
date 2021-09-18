@@ -1,0 +1,628 @@
+Q. 31: Reverse a number using recursion
+QUESTION DESCRIPTION
+
+java program Reverse a number using recursion
+
+Note: Use double Data type
+TEST CASE 1
+
+INPUT
+2512
+OUTPUT
+2152
+===============================
+code :
+
+import java.util.Scanner;
+import java.util.*;
+
+public class TestClass
+{
+    public static int reverse(int num)
+    {
+        int sum = 0;
+        if (num<10)
+        {
+          System.out.print(num);
+        }
+         else
+         {
+             System.out.print(num%10);
+         
+             reverse(num/10);
+         }
+        return num;
+    }   
+	public static void main(String[] args) 
+	{
+	   Scanner s = new Scanner(System.in);
+	   int n = s.nextInt();
+	   reverse(n);
+	    
+	}
+}
+======================================================
+Q. 32: Transpose of a matrix
+QUESTION DESCRIPTION
+
+Java Program to transpose of a matrix
+Given an M x N matrix, transpose the matrix without auxiliary memory
+TEST CASE 1
+
+INPUT
+2 3
+11 18 56 19 34 16
+OUTPUT
+11 19 
+18 34 
+56 16 
+
+====================================
+
+code :
+
+import java.util.Scanner;
+import java.io.*;
+
+public class TestClass
+{
+	public static void main(String[] args) 
+	{
+      Scanner s = new Scanner(System.in);
+       int row = s.nextInt();
+       int col= s.nextInt();
+       int[][] arr = new int[row][col];
+       for(int i = 0 ; i<row ; i++)
+       {
+          for(int j= 0 ; j<col ;j++)
+          {
+              arr[i][j]=s.nextInt();
+          }
+       }
+       for(int i = 0 ;i< col ; i++)
+       {
+           for(int j = 0 ; j<row ; j++)
+           {
+               System.out.print(arr[j][i] +  " ") ; 
+               
+           }
+           System.out.println();
+           
+       }
+  	}
+}
+
+==========================================
+
+Q. 33: Sequence
+QUESTION DESCRIPTION
+
+You are given a sequence a1, a2, ...,aN. Find the smallest possible value of ai + aj, where 1 i < j N.
+Input
+The first line of the input contains an integer T denoting the number of test cases. The description of T test cases follows.
+The first line of each description consists of a single integer N.
+The second line of each description contains N space separated integers - a1, a2, ...,aN respectively.
+Output
+For each test case, output a single line containing a single integer - the smallest possible sum for the corresponding test case.
+TEST CASE 1
+
+INPUT
+2
+6
+5 1 3 4 18 56
+8
+8 7 3 1 34 72 89 11
+OUTPUT
+4
+4
+=====================================
+code :
+import java.util.Scanner;
+import java.io.*;
+import java.util.Arrays;
+
+public class TestClass
+{
+	public static void main(String[] args) 
+	{
+      Scanner s = new Scanner(System.in);
+       int choice = s.nextInt();
+         for(int k = 0 ;k<choice ;k++)
+         {
+             
+             int sum = 0;
+              int inp = s.nextInt();
+              int[] arr = new int[inp];
+              int temp = arr[0];
+              for(int i = 0 ;i<inp ; i++)
+              {
+                  arr[i]= s.nextInt();
+              }
+             
+             Arrays.sort(arr);
+             
+             for(int i = 0 ; i<2; i++)
+             {
+                sum = sum+arr[i];
+                     
+             }
+               System.out.println(sum);
+         }
+
+	}
+} 
+============================================
+Q. 34: Simple Statistics
+QUESTION DESCRIPTION
+
+Sergey has made N measurements. Now, he wants to know the average value of the measurements made.
+In order to make the average value a better representative of the measurements, before calculating the average, he wants first to remove the highest K and the lowest K measurements. After that, he will calculate the average value among the remaining N - 2K measurements.
+
+Could you help Sergey to find the average value he will get after these manipulations?
+
+Input
+The first line of the input contains an integer T denoting the number of test cases. The description of T test cases follows.
+The first line of each test case contains two space-separated integers N and K denoting the number of measurements and the number of the greatest and the lowest values that will be removed.
+The second line contains N space-separated integers A1, A2, ..., AN denoting the measurements.
+
+Output
+For each test case, output a single line containing the average value after removing K lowest and K greatest measurements.
+Your answer will be considered correct, in case it has absolute or relative error, not exceeding 10-6.
+
+
+Constraints
+1<=T<=100
+1<=N<=104
+0<=2K<N
+-106<=Ai<=106
+
+Subtasks
+Subtask #1 (50 points): K = 0
+Subtask #2 (50 points): no additional constraints
+
+Example
+Input:
+3
+5 1
+2 9 -10 25 1
+5 0
+2 9 -10 25 1
+3 1
+1 1 1
+
+Output:
+4.000000
+5.400000
+1.000000
+
+Explanation
+Example case 1. After removing 1 greatest and 1 lowest measurement, we get the set {2, 9, 1}. The average value in this set is (2+9+1)/3=4.
+
+Example case 2. The average value in the set {2, 9, -10, 25, 1} is (2+9-10+25+1)/5=5.4.
+
+Example case 3. After removing the 1 largest and smallest measurements, Sergey will be left with only one measurement, i.e. 1. Average of this is 1 itself.
+======================================================
+import java.util.*;
+ 
+public class TestClass
+{
+	public static void main(String[] args) 
+	{
+	    Scanner s = new Scanner(System.in);
+	    int n = s.nextInt();
+	    for(int h = 0 ; h<n ; h++)
+	    {
+	    int num  = s.nextInt();
+	    int k = s.nextInt();
+	    int[] arr = new int[num];
+	    for(int i = 0 ; i<num  ; i++)
+	    {
+	        arr[i] = s.nextInt();
+	    }
+	    Arrays.sort(arr);
+	    int count = 0;
+	    int sum = 0 ;
+	    for(int j = k ; j<num-k ; j++)
+	    {
+		 ++count;
+	    }
+	    for(int j = k ; j<num-k ; j++)
+	    {
+		  sum += arr[j];
+	    }
+	    double avg = (double) sum/count;  
+		 System.out.println(avg);
+	    }
+	
+	}
+}
+===================================================
+Q. 35: Shop in Candy Store
+QUESTION DESCRIPTION
+
+In a candy store there are N different types of candies available and the prices of all the N different types of candies are provided to you.
+You are now provided with an attractive offer.
+You can buy a single candy from the store and get atmost K other candies ( all are different types ) for free.
+Now you have to answer two questions. Firstly, you have to tell what is the minimum amount of money you have to spend to buy all the N different candies. Secondly, you have to tell what is the maximum amount of money you have to spend to buy all the N different candies.
+In both the cases you must utilize the offer i.e. you buy one candy and get K other candies for free.
+
+
+Input
+The first line of the input contains T the number of test cases. Each test case consists of two lines. The first line of each test case contains the values of N and K as described above. Then in the next line N integers follow denoting the price of each of the N different candies.
+
+
+Output
+For each test case output a single line containing space separated integers , the first denoting the minimum amount of money required to be spent and the second denoting the maximum amount of money to be spent.
+Remember to output the answer of each test case in a new line.
+
+Constraints
+1 <= T <= 50
+1 <= N <= 1000
+0 <= K <= N-1
+1 <= Ai <= 100
+=================================================
+code :
+import java.util.*;
+
+class TestClass {
+
+static int findMinimum(int arr[], int n, int k)
+{
+
+int res = 0;
+
+for (int i = 0; i<n; i++)
+{
+res += arr[i];
+
+n=n-k;
+}
+
+return res;
+}
+static int findMaximum(int arr[], int n, int k)
+
+{ 
+    int res = 0, index = 0;
+
+for (int i = n -1; i >= index; i--)
+{
+
+res += arr[i];
+
+index += k;
+}
+
+return res;
+}
+public static void main(String[] args)
+
+{
+
+Scanner in = new Scanner(System.in); 
+int testcases = in.nextInt();
+
+for(int e=0;e<testcases;e++)
+{ int n = in.nextInt();
+int k=in.nextInt();
+int[] arr = new int[n];
+for(int i=0;i<n;i++)
+{
+    arr[i]=in.nextInt();
+}
+
+Arrays.sort(arr); 
+System.out.println(findMinimum(arr, n, k) +" "+findMaximum(arr, n, k));
+ 
+}
+}
+}
+ ====================================================
+ Q. 37: Chef and Inequality
+QUESTION DESCRIPTION
+
+Given four integers a, b, c, d. Find number of solutions x < y, where a x b and c y d and x, y integers
+TEST CASE 1
+
+INPUT
+3
+2 3 2 9
+1 6 3 9
+1 3 7 9
+OUTPUT
+13
+32
+9
+============================================
+import java.util.*;
+class TestClass
+{
+    public static int NumberOfSolutions(int a, int b, int c, int d)
+{
+	 
+	int ans = 0;
+ 
+	for (int i = a; i <= b; i++)
+		if (d >=  Math.max(c, i + 1))
+			ans += d - Math.max(c, i + 1) + 1;
+     return ans;
+}
+
+    
+public static void main(String args[])
+ {
+    Scanner sc = new Scanner(System.in);
+    int num = sc.nextInt();
+    
+    for(int ko = 0 ; ko<num ; ko ++)
+    {
+        int a =  sc.nextInt();
+          int b = sc.nextInt();
+            int c = sc.nextInt();
+              int d= sc.nextInt();
+           System.out.println(NumberOfSolutions(a,b,c,d));   
+    }
+
+ 
+ }
+}
+==============================================
+Q. 38: Character Arrays to String
+QUESTION DESCRIPTION
+
+Write a java program to convert a char array to a string.
+TEST CASE 1
+
+INPUT
+27
+T A M I L T H E M O T H E R O F A L L L A N G U A G E
+OUTPUT
+TAMILTHEMOTHEROFALLLANGUAGE
+==========================================
+code :
+import java.util.*;
+class TestClass
+{
+   
+public static void main(String args[])
+ {
+    Scanner sc = new Scanner(System.in);
+     int num = sc.nextInt();
+     char[] arr = new char[num];
+   for(int i = 0 ; i< num ; i++)
+     {
+         arr[i]  = sc.next().charAt(0);
+   }
+      for(int i = 0 ; i< num ; i++)
+     {
+         System.out.print(arr[i]);
+      }
+
+ 
+ }
+}
+=================================================
+Q. 39: Merge Two Sorted Arrays
+QUESTION DESCRIPTION
+
+You have to merge the two sorted arrays into one sorted array (in non-increasing order)
+
+Input:
+
+First line contains an integer T, denoting the number of test cases.
+First line of each test case contains two space separated integers X and Y, denoting the size of the two sorted arrays.
+Second line of each test case contains X space separated integers, denoting the first sorted array P.
+Third line of each test case contains Y space separated integers, denoting the second array Q.
+
+
+Output:
+
+For each test case, print (X + Y) space separated integer representing the merged array.
+
+
+Constraints:
+
+1 <= T <= 100
+1 <= X, Y <= 5*104
+0 <= Pi, Qi <= 109
+==============================================
+code :
+ 
+import java.util.*;
+
+class TestClass
+{
+	 
+	public static void main(String[] args)
+	{
+        Scanner s = new Scanner(System.in);
+        int choice = s.nextInt();
+      
+        for(int choic = 0 ; choic<choice ;choic++)
+        {
+        
+       int num,num1,num2;
+       int[] farr = new int[1000];
+        int[] sarr = new int[1000];
+        int[] c = new int[1000];
+      num = s.nextInt();
+        num1 = s.nextInt();
+       num2 = num + num1;
+       
+        
+        
+         for(int i = 0; i< num;i++)
+         {
+             farr[i]= s.nextInt();
+         }
+         for(int i = 0; i< num1;i++)
+         {
+             sarr[i]=s.nextInt();
+         }
+	
+       for (int i = 0; i < num; i = i + 1)
+        {
+          c[i]=farr[i];
+        }
+     for (int i = 0; i < num1; i = i + 1) 
+     {
+     c[num+i] = sarr[i];
+     }
+      
+        for (int i = 0; i < num2 ; i = i + 1) 
+        {
+        for(int j = i+1 ;j<num2; j++)
+        {
+            if(c[i]<c[j])
+            {
+                int temp = c[i];
+                c[i]=c[j];
+                c[j]=temp;
+            }
+        }
+        }
+         for (int i = 0; i <num2 ; i = i + 1) 
+        {
+           System.out.print(c[i]+" ");
+        } 
+          System.out.println();
+       }
+        
+        
+ 	    
+	}
+//7 5 3 1
+//9 8 6 2 0
+	 
+}
+
+ ============================================
+Q. 40: Convert an array to reduced form
+QUESTION DESCRIPTION
+
+Given an array with n distinct elements, convert the given array to a reduced form where all elements are in range from 0 to n-1. The order of elements is same, i.e., 0 is placed in place of smallest element, 1 is placed for second smallest element, n-1 is placed for largest element.
+
+Input:
+
+The first line of input contains an integer T denoting the number of test cases.
+The first line of each test case is N, where N is the size of array.
+The second line of each test case contains N input arr[i].
+
+Output:
+
+Print the reduced form of the array.
+
+Constraints:
+
+1<=T<=100
+1<=N<=200
+1<= arr[i] <=1000
+===============================================
+code :
+ 
+import java.util.*;
+
+class TestClass
+{
+	public static void convert(int arr[], int n)
+	{ 
+		int temp[] = arr.clone();
+
+		 
+		Arrays.sort(temp);
+
+	 
+		HashMap<Integer, Integer> umap = new HashMap<>();
+
+		 
+		int val = 0;
+		for (int i = 0; i < n; i++)
+			umap.put(temp[i], val++);
+
+		 
+		for (int i = 0; i < n; i++)
+			arr[i] = umap.get(arr[i]);
+	}
+
+	public static void printArr(int arr[], int n)
+	{
+		for (int i = 0; i < n; i++)
+			System.out.print(arr[i] + " ");
+	}
+
+	 
+	public static void main(String[] args)
+	{
+      
+       Scanner s = new Scanner(System.in);
+       int num = s.nextInt();
+       for(int ki = 0 ; ki<num ; ki++)
+       {
+		 int num1 = s.nextInt();
+		int[] arr = new int[num1];
+		
+		int n = arr.length;
+		for(int i = 0 ;i<n;i++)
+		{
+		    arr[i]=s.nextInt();
+		}
+		convert(arr , n);
+
+		 
+		printArr(arr, n);
+        System.out.println();
+       }
+
+	}
+}
+
+ 
+================================================================
+
+
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
