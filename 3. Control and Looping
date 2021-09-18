@@ -1,0 +1,496 @@
+Q. 21: Print the Factors and Number of factors.
+QUESTION DESCRIPTION
+
+Write a java program to find the number of factors of the given Integer number.
+Print the factors .
+input format:
+1. Integer Number
+Output format:
+1. first line of output represents the factors of the given integer.
+2.second line of the output represents the total number of factors.
+
+Refer Sample test cases.
+=============================================
+code :
+
+import java.io.*;
+import java.util.Scanner;
+public class TestClass 
+{
+    public static void main(String[] args) 
+     {
+       Scanner sc = new Scanner(System.in) ;
+        int n =sc.nextInt();
+        int count=0;
+        for(int i= 1 ; i<=n ;i++)
+        {
+            if(n%i==0)
+            {
+                System.out.print(i+" ");
+                ++count;
+            }
+        }
+       System.out.println();
+       System.out.println(count);
+       
+	}
+}
+=================================================
+Q. 22: PATTERNS - L9
+QUESTION DESCRIPTION
+
+Write a java program to display the following patterns
+TEST CASE 1
+
+INPUT
+7
+OUTPUT
+1 
+1 2 1 
+1 2 3 2 1 
+1 2 3 4 3 2 1 
+1 2 3 4 5 4 3 2 1 
+1 2 3 4 5 6 5 4 3 2 1 
+1 2 3 4 5 6 7 6 5 4 3 2 1
+==============================================
+code :
+import java.io.*;
+import java.util.Scanner;
+ 
+public class TestClass
+{
+    public static void main(String[] args) 
+    {
+        Scanner sc = new Scanner(System.in);
+        int rows = sc.nextInt();
+         
+     
+         
+        for (int i = 1; i <= rows; i++) 
+        {
+         for (int j = 1; j <= i; j++) 
+            { 
+                System.out.print(j+" "); 
+            }
+        for (int j = i-1; j >= 1; j--)
+            {
+                System.out.print(j+" ");
+            }
+             
+            System.out.println();
+        }
+    }   
+      
+       
+}
+========================================
+Q. 23: Find Point
+QUESTION DESCRIPTION
+
+Consider two points, p=(p subscript x,p subscript y) and q=(q subscript x,q subscript y). We consider the inversion or point reflection,r=(r subscript x, r subscript y) , of point p across point q to be a 180o rotation of point around .
+
+Given n sets of points p and q, find r for each pair of points and print two space-separated integers denoting the respective values of r subscript x and r subscript y on a new line.
+
+Input Format
+
+The first line contains an integer, , denoting the number of sets of points.
+Each of the n subsequent lines contains four space-separated integers describing the respective values of p subscript x,p subscript y q subscript x and q subscript y defining points p=(p subscript x, p subscript y) and q=(q subscript x,q subscript y) .
+
+Constraints
+
+1<=n<=15
+-100<=p subscript x, p subscript y , q subscript x, q subscript y <=100
+
+Output Format
+
+For each pair of points and , print the corresponding respective values of r subscript x and r subscript y as two space-separated integers on a new line.
+=================================================
+code :
+import java.io.*;
+import java.util.Scanner;
+class TestClass{
+public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int [] p = new int[4];
+        for(int i=0; i<n && sc.hasNextInt(); ++i) {
+            for(int j=0; j<4; ++j)
+                p[j] = sc.nextInt();
+            int x = p[2]*2 - p[0];
+            int y = p[3]*2 - p[1];
+            System.out.println(x+" "+y);
+        }
+}
+}
+==========================================================
+Q. 24: PATTERNS - L11
+QUESTION DESCRIPTION
+
+Write a java program to display the following pattern
+TEST CASE 1
+
+INPUT
+7
+OUTPUT
+1
+10
+101
+1010
+10101
+101010
+1010101
+============================================
+code :
+
+import java.io.*;
+import java.util.Scanner;
+public class  TestClass
+{
+    public static void main(String[] args) 
+     {
+       Scanner sc = new Scanner(System.in) ;
+        int num= sc.nextInt();
+        int sum=0,i,j;
+         
+    for(i = 0; i <=num; i++)
+    {
+       if(i==num)
+      {
+       break;
+       }
+    	for(j = 0; j <=i; j++)
+		{
+			if(j % 2 != 0)
+			{
+				System.out.print("0");
+			}
+			else
+			{
+			System.out.print("1");
+			}       	
+        }
+       System.out.println();
+   
+    }
+       
+	}
+}
+
+    ==============================================
+    Q. 25: PATTERNS - L 1
+QUESTION DESCRIPTION
+
+Write a java program to display the following patterns
+TEST CASE 1
+
+INPUT
+7
+OUTPUT
+1 
+1 2 
+1 2 3 
+1 2 3 4 
+1 2 3 4 5 
+1 2 3 4 5 6 
+1 2 3 4 5 6 7 
+==============================
+
+code :
+import java.io.*;
+import java.util.Scanner;
+
+public class TestClass
+{
+	public static void main(String[] args) 
+	{
+	 Scanner s = new Scanner(System.in);
+	 
+     int num = s.nextInt();
+     for(int i = 1; i<=num; i++)
+     {
+         for(int j = 1 ;j<=i ; j++)
+         {
+           System.out.print(j+" ");
+           
+         }
+         System.out.println();
+         }
+
+
+	}
+}
+ ==========================================
+Q. 26: PATTERNS - L16
+QUESTION DESCRIPTION
+
+Write a java program to display the following patterns
+TEST CASE 1
+
+INPUT
+7
+OUTPUT
+1 
+2 8 
+3 9 14 
+4 10 15 19 
+5 11 16 20 23 
+6 12 17 21 24 26 
+7 13 18 22 25 27 28
+===================================
+code :
+import java.io.*;
+import java.util.Scanner;
+
+public class TestClass
+{
+	public static void main(String[] args) 
+	{
+	 Scanner s = new Scanner(System.in);
+	 
+     int num = s.nextInt();
+     for(int i = 1; i<=num; i++)
+     { 
+         int num1 = i;
+         for(int j = 1 ;j<=i ; j++)
+         {
+           System.out.print(num1+" ");
+           num1 = num1 + num -j;
+         }
+         System.out.println();
+         }
+	}
+}
+=================================================
+Q. 27: PATTERNS - L8
+QUESTION DESCRIPTION
+
+Write a java program to display the following patterns
+TEST CASE 1
+
+INPUT
+7
+OUTPUT
+1 2 3 4 5 6 7 
+1 2 3 4 5 6 
+1 2 3 4 5 
+1 2 3 4 
+1 2 3 
+1 2 
+1 
+1 2 
+1 2 3 
+1 2 3 4 
+1 2 3 4 5 
+1 2 3 4 5 6 
+1 2 3 4 5 6 7
+============================================
+code :
+import java.io.*;
+import java.util.Scanner;
+
+public class TestClass
+{
+	public static void main(String[] args) 
+	{
+	 Scanner s = new Scanner(System.in);
+	 
+     int num = s.nextInt();
+     for(int i = num; i>=1; i--)
+     {
+         for(int j = 1 ;j<=i ; j++)
+         {
+           System.out.print(j+" ");
+           
+         }
+         System.out.println();
+         }
+         
+	
+	for(int i = 2; i<=num; i++)
+     {
+          
+         
+         for(int j = 1 ;j<=i ; j++)
+         {
+           
+           System.out.print(j+" ");
+           
+         }
+         System.out.println();
+         }
+
+	}
+}
+===================================================
+Q. 28: GSM Network
+QUESTION DESCRIPTION
+
+The most important part of a GSM network is so called Base Transceiver Station (BTS). These transceivers form the areas called cells (this term gave the name to the cellular phone) and every phone connects to the BTS with the strongest signal (in a little simplified view). Of course, BTSes need some attention and technicians need to check their function periodically.
+
+The technicians faced a very interesting problem recently. Given a set of BTSes to visit, they needed to find the shortest path to visit all of the given points and return back to the central company building. Programmers have spent several months studying this problem but with no results. They were unable to find the solution fast enough. After a long time, one of the programmers found this problem in a conference article. Unfortunately, he found that the problem is so called "Traveling Salesman Problem" and it is very hard to solve. If we have N BTSes to be visited, we can visit them in any order, giving us N! possibilities to examine. The function expressing that number is called factorial and can be computed as a product
+1.2.3.4....N. The number is very high even for a relatively small N.
+
+The programmers understood they had no chance to solve the problem. But because they have already received the research grant from the government, they needed to continue with their studies and produce at least some results. So they started to study behavior of the factorial function.
+For example, they defined the function Z. For any positive integer N, Z(N) is the number of zeros at the end of the decimal form of number N!. They noticed that this function never decreases. If we have two numbers N1<N2, then Z(N1) <= Z(N2). It is because we can never "lose" any trailing zero by multiplying by any positive number. We can only get new and new zeros. The function Z is very interesting, so we need a computer program that can determine its value efficiently.
+
+Input
+There is a single positive integer T on the first line of input (equal to about 100000). It stands for the number of numbers to follow. Then there are T lines, each containing exactly one positive integer number N, 1 <= N <= 1000000000.
+
+Output
+For every number N, output a single line containing the single non-negative integer Z(N).
+=================================================
+
+code :
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+
+
+class  TestClass 
+{
+   
+    public static int getTrailingZeros(int n) {
+        int zeros = 0;
+        while (n > 0) {
+            zeros += n / 5;
+            n /= 5;
+        }
+        return zeros;
+    }
+
+    public static void main(String[] args) throws IOException
+    {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        PrintWriter pr = new PrintWriter(System.out);
+        int t = Integer.parseInt(br.readLine());
+        while (t-- > 0) {
+            int n = Integer.parseInt(br.readLine());
+            pr.println(getTrailingZeros(n));
+        }
+        pr.flush();
+        pr.close();
+    }
+}
+
+======================================================
+SESSION: Control and Looping
+Q. 29: Save the Prisoner!
+QUESTION DESCRIPTION
+
+A jail has N prisoners, and each prisoner has a unique id number,S , ranging from 1 to N. There are M sweets that must be distributed to the prisoners.
+
+The jailer decides the fairest way to do this is by sitting the prisoners down in a circle (ordered by ascending S ), and then, starting with some random , distribute one candy at a time to each sequentially numbered prisoner until all M candies are distributed.
+
+For example, if the jailer picks prisoner S=2, then his distribution order would be (2,3,4,5,...,n-1,n,1,2,3,4,..) until all M sweets are distributed.
+
+But wait - there's a catch - the very last sweet is poisoned! Can you find and print the ID number of the last prisoner to receive a sweet so he can be warned?
+
+Input Format
+
+The first line contains an integer,T , denoting the number of test cases.
+
+The T subsequent lines each contain 3 space-separated integers:
+
+N (the number of prisoners), M (the number of sweets), and S(the prisoner ID), respectively.
+
+Constraints
+
+1<=T<=100
+1<=N<=10 power 9
+1<=M<=109 power 9
+1<=S<=109 power 9
+
+Output Format
+
+For each test case, print the ID number of the prisoner who receives the poisoned sweet on a new line.
+=========================================
+
+code :
+
+import java.io.*;
+import java.util.Scanner;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+ class TestClass 
+ {
+
+    public static void main(String[] args) 
+    {
+        Scanner input = new Scanner(System.in);
+        int rounds = input.nextInt();
+        for(int i = 0; i < rounds; i++)
+        {
+            int n = input.nextInt();
+            int m = input.nextInt();
+            int s = input.nextInt() ;
+            
+            System.out.println((s+m-2)%n+1);
+        }    
+    }
+}
+========================================================
+Q. 30: Break a sequence
+QUESTION DESCRIPTION
+
+Mohan is working on a program in which he has to take the input of lucky number of some people.
+
+But the condition is to stop processing input after reading in the number 42 as he does not like the number 42.
+
+All numbers at input are integers of one or two digits.
+TEST CASE 1
+
+INPUT
+7
+11 22 88 42 99 22 33
+OUTPUT
+11
+22
+88
+==============================================
+code :
+
+import java.io.*;
+import java.util.Scanner;
+
+public class TestClass
+{
+	public static void main(String[] args) 
+	{
+	 Scanner s = new Scanner(System.in);
+	 
+     int num = s.nextInt();
+     int[] arr = new int[num] ; 
+     for(int i = 0; i<num ; i++)
+     {
+         arr[i]=s.nextInt();
+     }
+       for(int i = 0 ; i<num ; i++)
+       {
+         if(arr[i]!=42)
+       {
+        System.out.println(arr[i]); 
+       }
+       else 
+       {
+       break;
+        }
+     }
+}
+}
+================================================
+
+
+
+
+
+
+
+
+
+
+
+
