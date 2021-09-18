@@ -1,0 +1,303 @@
+QUESTION DESCRIPTION
+
+The Moons gravity is about 16.6 percent that of Earths.Write a program that computes your effective weight on the Moon.
+
+Note:
+
+Use Double Data Type
+===========================================
+code:
+import java.io.*;
+import java.util.Scanner;
+public class TestClass {
+	 public static void main(String[] args) { 
+	  Scanner s=new Scanner(System.in);
+       double  w=s.nextInt();
+       double mw=(w*(16.6))/100;
+       System.out.println(mw);
+       
+	}
+}
+======================================================
+2.
+Q. 3: Area of a Rectangle
+QUESTION DESCRIPTION
+
+Java Program to find area of a Rectangle
+TEST CASE 1
+
+INPUT
+10
+15
+=====================================================
+code:
+import java.io.*;
+import java.util.Scanner;
+public class TestClass {
+	 public static void main(String[] args) throws java.lang.Exception
+     {
+       
+       Scanner scan = new Scanner(System.in) ;
+       int length = scan.nextInt();
+       
+       int breadth = scan.nextInt();
+         
+       int area = length * breadth;
+       System.out.print(area) ;
+
+       scan.close() ;
+		
+	}
+}
+======================================================
+3.
+Q. 4: Assignment Operator
+QUESTION DESCRIPTION
+
+Sneha got a single integer as an input , and her task to perform all assignment operations in with the given input . Let us help her to solve with the following conditions met,
+
+To Perform ,
+
+Assign an input the new the variable and display
+Using addition assignment operation(c+=3;c=c+3)
+Using Subtraction assignment operation
+Using division assignment operation
+Using modulus assignment operation
+Input and Output Format:
+
+Refer sample input and output for formatting specification.All float values are displayed correct to 2 decimal places.All text in bold corresponds to input and the rest corresponds to output.
+=========================================
+code : 
+import java.util.Scanner;
+import java.io.*;
+ public class TestClass
+{
+	public static void main(String[] args) 
+	{
+		Scanner s = new Scanner(System.in);
+		 int add , sub , mul ,div, rem;
+		 int a , b;
+		 a = s.nextInt();
+		 b = s.nextInt();
+		 add = a+b;
+		 sub = a-b;
+		 mul =a*b;
+		 div = a/b;
+		 rem = a%b;
+        
+		System.out.println("Addition:"+add );
+		System.out.println("Subtraction:"+sub );
+		System.out.println("Multiplication:"+mul );
+		System.out.println("Division:" +div);
+		System.out.println("Modulus:" +rem);
+	}
+}
+ 
+ ==========================================================
+ 4.
+ Q. 5: Cylinder volume
+QUESTION DESCRIPTION
+
+(Compute the volume of a cylinder)
+
+Write a program that reads in the radius and length of a cylinder and computes the area and volume using the following
+
+formulas:
+
+area = radius * radius * pi
+volume = area * length
+
+Assign PI value as 3.14
+======================================================
+code:
+import java.io.*;
+import java.util.Scanner;
+public class TestClass 
+{
+	 public static void main(String[] args) 
+     {
+       Scanner sc = new Scanner(System.in) ;
+       double radius,length;
+       radius = sc.nextDouble();
+       length = sc.nextDouble();
+       double PI = 3.14;
+	   double area, volume;
+       area = (radius*radius)* PI;
+       volume = area * length;
+       System.out.printf("%.2f",area) ;
+       System.out.println();
+       System.out.printf("%.2f",volume) ;
+       
+	}
+}
+=================================================
+Q. 6: Simple Interest
+QUESTION DESCRIPTION
+
+Write a program to find the simple interest for given principal amount P, time T(in years) and rate R.
+
+Input:
+Each test case should contain three values P,T,R.
+
+Output:
+Print the simple interest
+
+Constraints:
+1<=T<=100
+1<=P<=1000
+1<=T<=20
+1<=R<=20
+==================================================
+code :
+import java.io.*;
+import java.util.Scanner;
+public class  TestClass
+{
+	 public static void main(String[] args) 
+     {
+       Scanner sc = new Scanner(System.in) ;
+         
+        float P  = sc.nextFloat();
+        float T  = sc.nextFloat();
+        float R= sc.nextFloat();
+        float si = (P*T*R)/100;
+	 
+        System.out.println(si) ;
+       
+       
+	}
+}
+========================================================
+Q. 7: Widening or Automatic Type Conversion
+QUESTION DESCRIPTION
+
+Widening conversion takes place when two data types are automatically converted. This happens when:
+
+The two data types are compatible.
+When we assign value of a smaller data type to a bigger data type.
+For Example, in java the numeric data types are compatible with each other but no automatic conversion is supported from numeric type to char or boolean. Also, char and boolean are not compatible with each other. Given an input integer cover it to float and double automatically.
+======================================
+code :
+import java.io.*;
+import java.util.Scanner;
+public class TestClass
+{
+	 public static void main(String[] args) 
+     {
+       Scanner sc = new Scanner(System.in) ;
+        int i = sc.nextInt();
+        long l = i; 
+          
+        // automatic type conversion
+        float f = l; 
+        System.out.println("Int value "+ i);
+        System.out.println("Long value "+ l);
+        System.out.println("Float value "+ f);
+       
+	}
+}
+==========================================================
+Q. 8: Points in triangle
+QUESTION DESCRIPTION
+
+Suppose a right triangle is placed in a plane as shown below.
+
+The right-angle point is placed at (0, 0), and the other two points are placed at (200, 0), and (0, 100). Write a program that prompts the user to enter a point with x- and y-coordinates and determines whether the point is inside the triangle.
+========================================================
+code : 
+
+import java.io.*;
+import java.util.Scanner;
+public class TestClass
+{
+	 public static void main(String[] args) 
+     {
+       Scanner sc = new Scanner(System.in) ;
+         
+        int x = sc.nextInt();
+        int y  = sc.nextInt();
+        if(x>=0 && x <=200 && y<=100 && y>=0 )
+        {
+          System.out.println("The point is in the triangle") ;  
+        }
+        else
+        {
+            System.out.println("The point is not in the triangle") ; 
+        }
+	 
+        
+       
+       
+	}
+}
+==============================================================
+Q. 9: Talking Parrot
+QUESTION DESCRIPTION
+
+We have a loud talking parrot. The ""hour"" parameter is the current hour time in the range 0..23. We are in trouble if the parrot is talking and the hour is before 7 or after 20. Return true if we are in trouble.
+
+parrotTrouble(true, 6) true
+parrotTrouble(true, 7) false
+parrotTrouble(false, 6) false
+==================================
+code :
+import java.io.*;
+import java.util.Scanner;
+public class TestClass
+{
+	 
+static public boolean parrotTrouble(boolean talking, int hour)
+{
+ 
+return (talking && (hour < 7 || hour > 20));
+ }
+
+	 public static void main(String[] args) 
+     {
+       Scanner sc = new Scanner(System.in) ;
+        boolean check= sc.nextBoolean();
+        int time = sc.nextInt();
+       System.out.println(parrotTrouble(check,time)) ;
+       
+       
+	}
+}
+===================================================================
+Q. 10: Area of Triangle
+QUESTION DESCRIPTION
+
+Write a program in java to find the Area of a triangle.
+First you create a method for calculating the area.
+Read or get the value of base width and height of triangle from user.
+then calculate the area of triangle and then print the triangle value.
+Area of Triangle = (base width * height)/2
+
+Note: input values may have decimal values
+output values should print with decimal values.
+
+==================================================
+code :
+ import java.util.*;
+ import java.io.*;
+
+public class TestClass
+{
+    public static void area(double  width , double height)
+    {
+         int num = 2;
+         double area = width * height / num;
+         System.out.println("Area of Triangle: "+area);
+    }
+	public static void main(String[] args) 
+	{
+		Scanner s = new Scanner(System.in);
+		 double width , height;
+		 width = s.nextDouble();
+		 height = s.nextDouble();
+		 System.out.println("Base Width: "+width);
+		  System.out.println("Height: "+height);
+		 area(width,height);
+	}
+}
+
+
