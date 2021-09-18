@@ -1,0 +1,467 @@
+Q. 11: Bitwise Right Shift operator
+QUESTION DESCRIPTION
+
+Get two integer values as input and an convert it to one time of Bitwise Right Shift operator
+TEST CASE 1
+
+INPUT
+8 -8
+==============================
+code :
+import java.io.*;
+import java.util.Scanner;
+public class TestClass 
+{
+	 public static void main(String[] args) 
+     {
+       Scanner s = new Scanner(System.in) ;
+       int num = s.nextInt();
+       int num1 = s.nextInt();
+       int rs = num>>1;
+       int rsm = num1>>1;
+       System.out.println(rs);
+      
+       System.out.println(rsm ); 
+       
+	}
+}
+===============================================
+SESSION: Data types and Operators
+Q. 12: To check for equilateral triangle
+QUESTION DESCRIPTION
+
+java program to check for equilateral traingle with sides in terms of double data type
+TEST CASE 1
+
+INPUT
+2
+4
+10
+OUTPUT
+No
+=====================================
+code :
+import java.io.*;
+import java.util.Scanner;
+public class TestClass {
+	 public static void main(String[] args) 
+    { 
+       Scanner s = new Scanner(System.in);
+       int a ,b,c;
+       a = s.nextInt();
+       b = s.nextInt();
+       c = s.nextInt();
+       if(a==b && b==c)
+       {
+     System.out.println("Yes");
+      }
+      else
+      System.out.println("No");
+     }
+}
+=============================
+Q. 13: Double to string conversion
+QUESTION DESCRIPTION
+
+Java Program to convert from double to string
+TEST CASE 1
+
+INPUT
+5.3678411
+OUTPUT
+5.3678411
+======================================================
+code :
+
+import java.io.*;
+import java.util.Scanner;
+public class  TestClass{
+	 public static void main(String[] args) 
+    { 
+       Scanner s = new Scanner(System.in);
+       double name = s.nextDouble();
+       String size = Double.toString(name); 
+       System.out.println(size);
+       
+     }
+}
+========================================
+Q. 14: Conversion from integer to double
+QUESTION DESCRIPTION
+
+Java Program to convert from integer to double number
+TEST CASE 1
+
+INPUT
+23
+OUTPUT
+23
+===========================
+code :
+import java.io.*;
+import java.util.Scanner;
+public class TestClass{
+	 public static void main(String[] args) 
+    { 
+       Scanner s = new Scanner(System.in);
+        int  i = s.nextInt();
+        double d =i;
+        if(d<5000)
+        {
+        System.out.println((int)d);
+        }
+        else 
+        System.out.println(d);
+     }
+}
+================================
+Q. 15: Swapping two numbers without using third variable
+QUESTION DESCRIPTION
+
+Java Program to swap two numbers without third variables
+TEST CASE 1
+
+INPUT
+3 2
+OUTPUT
+2 3
+======================================
+code :
+import java.io.*;
+import java.util.Scanner;
+public class TestClass
+{
+ 
+
+	 public static void main(String[] args) 
+     {
+       Scanner sc = new Scanner(System.in) ;
+        int a =sc.nextInt();
+        int b = sc.nextInt();
+         a = a+b;      
+        b = a-b;      
+        a  =  a-b; 
+       System.out.println(a+" "+b) ;
+       
+       
+	}
+}
+==================================
+Q. 16: Decimal to Roman Number Conversion
+QUESTION DESCRIPTION
+
+
+Java Program to convert decimal to roman number
+
+If the number is out of range (above 3999) then display the error message as "Out of Range"
+
+TEST CASE 1
+
+INPUT
+3482
+OUTPUT
+MMMCDLXXXII
+==========================
+code :
+import java.util.Scanner;
+class TestClass{
+ 
+    static int sub_digit(char num1, char num2, int i, char[] c) {
+        c[i++] = num1;
+        c[i++] = num2;
+        return i;
+    }
+ 
+    static int digit(char ch, int n, int i, char[] c) {
+        for (int j = 0; j < n; j++) {
+            c[i++] = ch;
+        }
+        return i;
+    }
+ 
+    static void printRoman(int number) 
+    {
+        char c[] = new char[10001];
+        int i = 0;
+ 
+        if (number <= 0 &&  number>=4000) {
+            System.out.printf("Out of Range");
+            return;
+        }
+         while (number != 0 && number < 4000) {
+             
+            if (number >= 1000 && number < 4000) {
+           
+                i = digit('M', number / 1000, i, c);
+                number = number % 1000;
+            } 
+            else if (number >= 500 && number < 4000) {
+     
+                if (number < 900) {
+                    i = digit('D', number / 500, i, c);
+                    number = number % 500;
+                } 
+                else {
+             
+                    i = sub_digit('C', 'M', i, c);
+                    number = number % 100;
+                }
+            } 
+            else if (number >= 100 && number < 4000) {
+    
+                if (number < 400) {
+                    i = digit('C', number / 100, i, c);
+                    number = number % 100;
+                } 
+                else {
+                    i = sub_digit('C', 'D', i, c);
+                    number = number % 100;
+                }
+            }
+            else if (number >= 50 && number < 4000) {
+     
+                if (number < 90) {
+                    i = digit('L', number / 50, i, c);
+                    number = number % 50;
+                } 
+                else {
+                    i = sub_digit('X', 'C', i, c);
+                    number = number % 10;
+                }
+            }  
+            else if (number >= 10 && number < 4000) {
+   
+                if (number < 40) {
+                    i = digit('X', number / 10, i, c);
+                    number = number % 10;
+                } 
+                else {
+                    i = sub_digit('X', 'L', i, c);
+                    number = number % 10;
+                }
+            }  
+            else if (number >= 5 && number < 4000) {
+                if (number < 9) {
+                    i = digit('V', number / 5, i, c);
+                    number = number % 5;
+                } 
+                else {
+                    i = sub_digit('I', 'X', i, c);
+                    number = 0;
+                }
+            }  
+            else if (number >= 1 && number < 4000) {
+                if (number < 4) {
+                    i = digit('I', number, i, c);
+                    number = 0;
+                }  
+                else {
+                    i = sub_digit('I', 'V', i, c);
+                    number = 0;
+                }
+            }
+        }
+ 
+        
+        for (int j = 0; j < i; j++) {
+            System.out.printf("%c", c[j]);
+        }
+    }
+ 
+ 
+    public static void main(String[] args) 
+    {
+       Scanner s = new Scanner(System.in);
+        int number = s.nextInt();
+         if (number <= 0 ||  number>=4000) {
+            System.out.printf("Out of Range");
+            return;
+         }
+            else
+        printRoman(number);
+    }
+}
+===================================
+Q. 17: conversion from double to float
+QUESTION DESCRIPTION
+
+Java Program to convert from double to float
+TEST CASE 1
+
+INPUT
+12.123456789
+OUTPUT
+12.123457
+========================
+code :
+import java.io.*;
+import java.util.Scanner;
+import java.lang.Float.*;
+public class TestClass{
+	 public static void main(String[] args) 
+    { 
+       Scanner s = new Scanner(System.in);
+        double d = s.nextDouble();
+         float  f =  (float) d;
+       System.out.print(f);
+       
+     }
+}
+============================================
+Q. 18: Area of Circle
+QUESTION DESCRIPTION
+
+Java Program to find area of circle
+
+Note:
+
+Use Double Data Type
+
+and Use the following statements in the output
+
+String.format("%.02f",area)
+TEST CASE 1
+
+INPUT
+2
+OUTPUT
+12.57
+================================
+code :
+
+import java.io.*;
+import java.util.Scanner;
+ 
+public class TestClass
+{
+	public static void main(String[] args) 
+	{
+	   Scanner s = new Scanner(System.in);
+ 
+	  double radi = s.nextDouble(); 
+	  double area =  Math.PI * radi * radi;
+	  System.out.println(String.format("%.2f",area));
+	
+	
+	
+	}
+}
+=======================================
+Q. 19: TICKETS
+QUESTION DESCRIPTION
+
+Every day, Mike goes to his job by a bus, where he buys a ticket.
+
+On the ticket, there is a letter-code that can be represented as a string of upper-case Latin letters.
+
+Mike believes that the day will be successful in case exactly two different letters in the code alternate. Otherwise, he believes that the day will be unlucky.
+
+Please see note section for formal definition of alternating code.
+
+You are given a ticket code. Please determine, whether the day will be successful for Mike or not. Print "YES" or "NO" (without quotes) corresponding to the situation.
+
+
+Input
+
+The first line of the input contains an integer T denoting the number of test cases. The description of T test cases follows.
+
+The first and only line of each test case contains a single string S denoting the letter code on the ticket.
+
+Output
+
+For each test case, output a single line containing "YES" (without quotes) in case the day will be successful and "NO" otherwise.
+
+Note
+Two letters x, y where x != y are said to be alternating in a code, if code is of form "xyxyxy...".
+
+Constraints
+1<=T <=100
+
+S consists only of upper-case Latin letters
+Subtask 1 (50 points):
+
+|S| = 2
+Subtask 2 (50 points):
+
+2 <= |S| <= 100
+========================================================
+code :
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+ 
+class TestClass
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner sc = new Scanner(System.in);
+		int t = sc.nextInt();
+		sc.nextLine();
+		while (t-- > 0) {
+		    String s = sc.nextLine();
+		    if (s.charAt(0) == s.charAt(1) || s.length() % 2 == 1) {
+		        System.out.println("NO");
+		    } else {
+		        boolean possible = true;
+		        for (int i = 2; i < s.length(); i++) {
+		            if (i % 2 == 0) {
+		                if (s.charAt(i) != s.charAt(0)) {
+		                    possible = false;
+		                    break;
+		                }
+		            } else {
+		                if (s.charAt(i) != s.charAt(1)) {
+		                    possible = false;
+		                    break;
+		                }
+		            }
+		        }
+		        System.out.println(possible ? "YES" : "NO");
+		    }
+		} 
+	}
+}
+=============================================================================
+Q. 20: Perfect Number
+QUESTION DESCRIPTION
+
+Java program to check for perfect number
+TEST CASE 1
+
+INPUT
+6
+OUTPUT
+Perfect number
+==================================================
+code :
+import java.io.*;
+import java.util.Scanner;
+public class TestClass
+{
+    public static void main(String[] args) 
+     {
+       Scanner sc = new Scanner(System.in) ;
+        int num = sc.nextInt();
+        int sum=0;
+         
+       for(int i = 1; i < num; i++)  
+       {  
+        if (num%i == 0) 
+        {
+            sum = sum + i;
+            
+        }  
+    }
+     if(sum==num)
+
+      {
+       System.out.println("Perfect number");
+          
+      }
+      else
+       System.out.println("Not Perfect number");
+       
+	}
+}
+========================================================================================
