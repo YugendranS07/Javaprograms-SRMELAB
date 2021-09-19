@@ -1,0 +1,419 @@
+Q. 62: PrefixAgain
+QUESTION DESCRIPTION
+
+Given a string, consider the prefix string made of the first N chars of the string. Does that prefix string appear somewhere else in the string? Assume that the string is not empty and that N is in the range 1..str.length().
+TEST CASE 1
+
+INPUT
+abXYabc
+1
+OUTPUT
+true
+=================================================
+ import java.util.*;
+
+public class TestClass
+{
+     public static boolean prefixAgain(String str, int n) 
+     {
+      int len = str.length();
+    String prefix = str.substring(0,n);
+  
+     for (int i = n; i < len; i++) {
+      if(n+i <= len) { 
+       if (prefix.equals(str.substring(i,n+i)))
+        return true;
+     }
+     }
+    return false;
+   }
+	public static void main(String[] args) 
+	{
+		Scanner s = new Scanner(System.in);
+		String name = s.nextLine();
+		int n = s.nextInt();
+		System.out.println(prefixAgain(name,n));
+	}
+}
+
+==================================================================================================================================================
+Q. 63: Implement strstr (Function Problem)
+QUESTION DESCRIPTION
+
+Your task is to implement the function strstr. The function takes two strings as arguments(s,x) and locates the occurrence of the string x in the string s. The function returns and integer denoting the first occurrence of the string x .
+
+Input:
+The first line of input contains an integer T denoting the no of test cases . Then T test cases follow. The first line of each test case contains two strings str and target.
+
+Output:
+For each test case in a new line output will be an integer denoting the first occurrence of the target string in the string s. Return -1 if no match found.
+
+Constraints:
+1<=T<=100
+1<=length of (s,x)<=1000
+==================================================================================================================================================
+ 
+import java.util.*;
+import java.io.*;
+class TestClass{
+
+	 
+	static int isSubstring(String s1, String s2)
+	{
+		int M = s1.length();
+		int N = s2.length();
+
+		 
+		for (int i = 0; i <= N - M; i++) {
+			int j;
+
+			 
+			for (j = 0; j < M; j++)
+				if (s2.charAt(i + j)
+					!= s1.charAt(j))
+					break;
+
+			if (j == M)
+				return i;
+		}
+
+		return -1;
+	}
+ 
+	public static void main(String args[]) 
+	{
+	    Scanner sc = new Scanner(System.in);
+	     
+	    int cas = sc.nextInt();
+	    
+	    
+	        while(cas-->0)
+	    {
+	    
+	    String s2 =  null;
+	    s2 = sc.next();
+		String s1 =   null;
+		s1=sc.next();
+	
+
+		int res = isSubstring(s1, s2);
+
+		if (res == -1)
+			System.out.println(-1);
+		else
+			System.out.println(res);
+	    }
+	    }
+	     
+	}
+ 
+
+ 
+
+
+
+==================================================================================================================================================
+
+Q. 64: Front
+QUESTION DESCRIPTION
+
+Given a string, well say that the front is the first 3 chars of the string. If the string length is less than 3, the front is whatever is there. Return a new string which is 3 copies of the front.
+TEST CASE 1
+
+INPUT
+Java
+OUTPUT
+JavJavJav
+
+==================================================================================================================================================
+ import java.util.*;
+
+public class TestClass
+{
+    public static void main(String[] args) 
+	{
+		Scanner s = new Scanner(System.in);
+		String name = s.nextLine();
+		String  n = name.substring(3);
+		System.out.println(n+n+n);
+	}
+}
+
+ 
+==================================================================================================================================================
+
+Q. 65: STRING CONVERSION 6
+QUESTION DESCRIPTION
+
+Write a program in Java to String toUpperCase
+TEST CASE 1
+
+INPUT
+Agathiyar Thirumoolar Bogar Konganar Therayar
+OUTPUT
+AGATHIYAR THIRUMOOLAR BOGAR KONGANAR THERAYAR
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==================================================================================================================================================
+import java.util.*;
+
+public class TestClass
+{
+    public static void main(String[] args) 
+	{
+		Scanner s = new Scanner(System.in);
+		String name = s.nextLine();
+		String  n = name.toUpperCase(); 
+		System.out.println(n);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==================================================================================================================================================
+
+Q. 66: percentage of letters
+QUESTION DESCRIPTION
+
+Write a java program to find the percentage of uppercase letters, lowercase letters, digits and other special characters(including space) in the given string.
+TEST CASE 1
+
+INPUT
+java2 @ ULC
+OUTPUT
+Uppercase letters are 27.27%
+Lowercase letters are 36.36%
+Digits Are 9.09%
+Other Characters Are 27.27%
+
+
+
+
+
+
+
+==================================================================================================================================================
+import java.util.*;
+import java.io.*;
+ 
+
+public class TestClass
+{
+   public static void main(String[] args) 
+	{
+	    Scanner s = new Scanner(System.in);
+	    
+		String names = s.nextLine();
+		 
+	
+	    double upper=0,lower=0,digit=0,spl=0;
+         int n =names.length();
+        for(int i =0 ; i< n ; i++)
+        {
+            char name = names.charAt(i);
+            if(name>='A'&& name<='Z')
+            {
+                ++upper;
+            }
+            else if(name>='a'&& name<='z')
+            {
+                ++lower;
+            }
+            else if(name>='0'&& name<='9')
+            {
+                ++digit;
+            }
+            else
+            {
+                ++spl;
+            }
+	    
+        }
+	    System.out.printf("Uppercase letters are %.2f",(upper*100)/n );
+	  System.out.print("%"); 
+	  System.out.println();
+      System.out.printf("Lowercase letters are %.2f",(lower*100)/n );
+	 System.out.print("%"); 
+	  System.out.println();
+      System.out.printf("Digits Are %.2f",(digit*100)/n );
+	 System.out.print("%"); 
+	  System.out.println();
+      System.out.printf("Other Characters Are %.2f",(spl*100)/n );
+	  System.out.print("%"); 
+	 }
+}
+
+
+
+
+
+
+
+
+
+
+==================================================================================================================================================
+Q. 67: WithOutX
+QUESTION DESCRIPTION
+
+Given a string, if the first or last chars are 'x', return the string without those 'x' chars, and otherwise return the string unchanged.
+TEST CASE 1
+
+INPUT
+xxThanajvurxxxx
+OUTPUT
+Thanajvur
+
+==================================================================================================================================================
+import java.util.*;
+import java.io.*;
+ 
+
+public class TestClass
+{
+   public static void main(String[] args) 
+	{
+	    Scanner s = new Scanner(System.in);
+	    
+		String names = s.nextLine();
+       int n =names.length();
+        for(int i =0 ; i< n ; i++)
+        {
+            char name = names.charAt(i);
+            if(name !='x' && name !='X')
+            {
+              System.out.print(name);
+            }
+            
+        }
+	}
+	
+}
+ 
+==================================================================================================================================================
+
+Q. 68: First Half
+QUESTION DESCRIPTION
+
+Given a string of even length, return the first half.
+TEST CASE 1
+
+INPUT
+WooHoo
+OUTPUT
+Woo
+ 
+==================================================================================================================================================
+import java.util.*;
+import java.io.*;
+ 
+
+public class TestClass
+{
+   public static void main(String[] args) 
+	{
+	    Scanner s = new Scanner(System.in);
+	    
+		String names = s.nextLine();
+       int n =names.length();
+        for(int i =0 ; i < n ; i++)
+        {
+            char name = names.charAt(i); 
+            if(i!=n/2)
+            {
+              System.out.print(name);
+            }
+            else
+              break;
+        }
+	}
+	
+}
+      
+            
+ ==================================================================================================================================================
+Q. 69: Largest palindromic substring
+QUESTION DESCRIPTION
+
+Given a string, write a java program to find largest palindromic substring in a string
+TEST CASE 1
+
+INPUT
+MahendraSinghDhoni
+OUTPUT
+hDh
+==================================================================================================================================================
+Q. 70: CatDog
+QUESTION DESCRIPTION
+
+Return true if the string "cat" and "dog" appear the same number of times in the given string.
+TEST CASE 1
+
+INPUT
+catdog
+OUTPUT
+true
+==================================================================================================================================================
+
+
+
+
+import java.util.*;
+import java.io.*;
+
+public class TestClass
+{
+  public static boolean catDog(String str) {
+   int len = str.length();
+   int cat = 0;
+   int dog = 0;
+  
+  for (int i = 0; i < len - 2; i++) {
+    String temp = str.substring(i, i+3);
+    if (temp.compareTo("cat") == 0)
+      cat++;  
+    if (temp.compareTo("dog") == 0)
+      dog++;  
+  }
+  if (cat == dog)
+    return true;
+  else
+    return false;
+}
+ 
+	public static void main(String[] args) 
+	{
+	 Scanner s = new Scanner(System.in);
+	    
+		String names = s.nextLine();
+		
+		System.out.println( catDog(names));
+	}
+}
+==========================================================================
+
+ 
