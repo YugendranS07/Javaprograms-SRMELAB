@@ -1,0 +1,1061 @@
+Q. 71: Multiple Inheritance
+QUESTION DESCRIPTION
+
+Write a java program to implement Multiple Inheritance for Banking application
+
+1.Create an interface with name "Bank"
+
+a. Declare data member as "rate" and assign the value to 15.0f
+b. Declare data member as "no_of_years" and assign the value to 3
+c. Declare the method show() with type void and takes no arguments
+
+2. Create a class named "Customer" with following data-members and methods
+
+Data members:
+
+a. Customer name as "String"
+b. Customer id as integer
+
+Method:
+
+a. Create a parameterized constructor for "Customer" class that takes two arguments (String and integer)
+b. Assign the value to Customer name and Customer id
+c. Create a method display() with return type as void and takes no arguments. Display the customer name and customer id
+
+
+3. Create a class "Account" that extends "Customer" class and implements "Bank" interface
+
+Data members:
+
+a. Account number as integer
+b. Account balance as float
+
+Method:
+
+a. Create a parameterized constructor for "Account" class that takes four arguments (String, integer, integer and float)
+b. Assign the value to account number and account balance
+c. Call the super class method using super keyword
+
+class Account extends Customer implements Bank {
+
+int acc_no;
+float acc_bal;
+Account(String n,int b,int x,float y) {
+
+super(n,b);
+acc_no=x;
+acc_bal=y;
+}
+
+d. Create a method show() of return type void that takes no arguments
+e. Invoke the display() method and then print the account number and account
+f. Create a method interest() of return type void that takes no arguments
+g. Invoke show() method and calculate the interest using
+
+(rate*acc_bal*no_of_years)/100
+
+and print the interest
+
+4. In main method of TestClass create an instance for Account class that take four parameters as:
+Name, customer id, account number and account balance.
+
+5. And call the interest() method to calculate interest
+
+=========================================================================================================================
+CODE ;
+
+import java.io.*;
+import java.util.Scanner;
+
+interface Bank{
+float rate=12.0f;
+int no_of_years=3; 
+void show();
+}
+
+class Customer
+{
+
+String name;
+
+int id;
+
+Customer(String n, int i)
+{
+name=n;
+
+id=i;
+}
+void display()
+{
+System.out.println("Customer Name="+name); 
+System.out.println("Customer Id="+id);
+
+}
+}
+class Account extends Customer implements Bank
+{
+
+int acc_no; float acc_bal;
+
+Account(String n, int b, int x,float y)
+{
+
+super(n,b);
+
+acc_no=x;
+
+acc_bal=y;
+}
+
+public void show()
+{
+
+super.display();
+
+System.out.println("Account No="+acc_no); System.out.println("Account Balance="+acc_bal);
+}
+
+void interest()
+{
+
+show();
+
+float interest =(rate *acc_bal*no_of_years)/100; 
+System.out.print("Interest="+interest);
+}
+}
+
+public class TestClass{
+
+public static void main(String[] args) 
+{
+    Scanner in = new Scanner(System.in);
+    String n=in.next();
+
+    int i = in.nextInt();
+   int ac= in.nextInt();
+   float b=in.nextFloat();
+   Account obj= new Account(n,i,ac,b);
+   obj.interest();
+}
+
+}
+
+
+=========================================================================================================================
+                                                    NEXT QUESTION 
+=========================================================================================================================
+
+Q. 72: Area of Circle and Rectangle - Interfaces
+QUESTION DESCRIPTION
+
+Implement Interfaces concept to find area of rectangle and circle
+
+1. Create an interface with interface name "Area"
+
+2. Declare variable "pi=3.14F" of type float and static [final static float pi=3.14f]
+
+3. Declare method "compute" of type float and has two arguments of type float [ float compute(float x,float y) ]
+
+4.Create a class "Rectangle" that implements "Area" interface
+
+5. Define the method compute and return the value to main method [ return(x*y) ]
+
+6. Create a class "Circle" that implements "Area" interface
+
+7. Define the method compute and return the value to main method [ return(pi*x*y) ]
+
+8. In main method of mainclass(TestClass) create an instance for "Rectangle" class with instance name "rect"
+
+9. Create an instance for "Circle" class with instance name "cir"
+
+10. Create an instance for Interface [ Area area]
+
+11. Assign the instance to "Rectangle" object [area=rect]
+
+12 Encounter the following statements after step 11
+
+Hint:
+
+Area area
+area=rect
+Scanner s = new Scanner(System.in)
+int a=s.nextInt()
+int b = s.nextInt()
+System.out.println("Area of Rectangle = "+area.compute(a,b))
+area=cir
+System.out.println("Area of Circle = "+area.compute(a,b))
+
+
+
+
+=========================================================================================================================
+CODE ;
+
+
+import java.util.*;
+import java.io.*;
+
+interface Area
+{
+final static float pi=3.14F;
+float compute(float x,float y);
+}
+class Rectangle implements Area
+{
+public float compute(float x,float y)
+{
+return(x*y);
+}
+}
+class Circle implements Area
+{
+public float compute(float x,float y)
+{
+return(pi*x*y);
+}
+}
+public class TestClass
+{
+public static void main(String args[])
+{
+  Scanner s = new Scanner (System.in);
+Rectangle rect = new Rectangle();
+Circle cir = new Circle();
+Area area;
+area=rect;
+int a = s.nextInt();
+int b = s.nextInt();
+System.out.println("Area of Rectangle="+area.compute(a,b));
+area=cir;
+System.out.println("Area of Circle="+area.compute(a,b));
+}
+}
+
+
+ 
+   
+
+
+
+
+=========================================================================================================================
+                                                    NEXT QUESTION 
+=========================================================================================================================
+
+Q. 73: Single Level Inheritance - Rectangle
+QUESTION DESCRIPTION
+
+Write a java program to find Area of Rectangle using Single Level Inheritance
+
+1. Create a class "Shape" and do the following in the data-members and method
+
+Data members
+a. length and breadth of type integer
+
+2. In Main class(TestClass) extend the base class "Shape" and declare the variable name as "area" of type integer.
+
+3. Create a method "calculateArea()" of type void that takes no argument. The return type is void.
+
+4. Calculate the area in the calculateArea() method [area= length*breadth]
+
+5. In the main method create a instance for main class (TestClass) as "r"
+
+6. Get the input of length and breadth using instancename.variablename
+
+Hint:
+r.length=scannerclassobject.nextInt()
+
+7. Invoked the calculateArea() method
+
+Note:
+The final answer must be printed in the Mainmethod using instancename (r.area)
+
+
+
+
+=========================================================================================================================
+
+CODE ;
+
+
+import java.util.*;
+import java.io.*;
+class shape
+{
+    static int length ;
+    static int breadth;
+}
+
+public class TestClass extends shape
+{ 
+        static void calculateArea()
+	    {
+	        int are;
+	     are= length*breadth;
+	     System.out.println("Area="+are);
+	    }
+	public static void main(String[] args)
+	{
+	    Scanner s = new Scanner(System.in);
+	     
+        
+        TestClass r = new TestClass();
+	    
+	    r.length = s.nextInt();
+        r.breadth = s.nextInt();
+	    int area;
+	   calculateArea();
+		 
+	}
+	
+}
+
+=========================================================================================================================
+                                                    NEXT QUESTION 
+=========================================================================================================================
+
+
+Q. 74: Multilevel Inheritance for Student Marklist
+QUESTION DESCRIPTION
+
+Write a java program to perform Multilevel Inheritance
+
+1. Create a Class "Student" with following data members and methods:
+
+Data members:
+
+a. Declare rollno of type integer and access specifier as private
+b. Declare name of type String and access specifier as private
+
+Methods:
+
+Method name = getRollNo
+
+a. Method name = getRollNo()
+b. Return type = void
+c. Access Specifier = public
+d. Argument = No argument
+e. Get the input of student roll number and name
+
+Method name = putRollNo
+
+a. Method name = putRollNo()
+b. Return type = void
+c. Access Specifier = public
+d. Argument = No argument
+e. Display the rollno and name
+
+2. Create a class "Marks" that extends "Student" class
+
+Data-members:
+
+Declare three variable as Mark 1, Mark 2, Mark 3 of type integer and protected
+
+a. Method name = getMarks()
+b. Return type = void
+c. Argument = No argument
+d. Get the marks of students (Mark1, Mark 2 and Mark 3)
+
+a. Method name = putMarks()
+b. Return type = void
+c. Argument = No argument
+. Display the marks of students (Mark1, Mark 2 and Mark 3)
+
+3. Create a class "Result" that extends "Marks" class
+
+Data-members:
+
+Declare one variable as total of type float and private
+
+a. Method name = computeDisplay()
+b. Return type = void
+c. Argument = No argument
+d. Add the marks and display the result
+
+a. Method name = putMarks()
+b. Return type = void
+c. Argument = No argument
+e. Display the marks of students (Mark1, Mark 2 and Mark 3)
+
+
+4. In Main method create an instance for "Result" class with instance name "r"
+
+5. Invoke methods such as getRollNo(), getMarks(), putRollNo(), putMarks() and computeDisplay()
+
+
+
+
+=========================================================================================================================
+CODE ;
+
+import java.util.*;
+import java.io.*;
+
+class Student 
+{
+    Scanner s = new Scanner(System.in);
+    private  int rollno;
+    private  String name;
+    
+    public void getrollNo()
+    {
+        name = s.nextLine();
+        rollno = s.nextInt();
+    }
+    public void putRollNo()
+    {
+     System.out.println("Name="+name);
+     System.out.println("Regno="+rollno);
+    }
+}
+
+class Marks extends Student
+{
+     protected int Mark1 , Mark2,Mark3 ;
+  
+     public void getMarks()
+     {
+         Mark1 = s.nextInt();
+         Mark2 = s.nextInt();
+         Mark3 = s.nextInt();
+     }
+      public void putMarks()
+      {
+          System.out.println("Mark1="+Mark1);
+          System.out.println("Mark2="+Mark2);
+          System.out.println("Mark3="+Mark3);
+     
+      }
+}
+class Result extends Marks
+{
+    private float total;
+    
+    
+    public void computeDisplay()
+    {
+        total =  Mark1 + Mark2 + Mark3;
+        System.out.println("Total="+(int)total);
+        
+    }
+    public void putMarks()
+      {
+          System.out.println("Mark1="+Mark1);
+          System.out.println("Mark2="+Mark2);
+          System.out.println("Mark3="+Mark3);
+     
+      }
+}
+
+
+
+public class TestClass
+{
+	public static void main(String[] args) 
+	{
+         Result r = new Result();
+         r.getrollNo();
+         r.putRollNo();
+         r.getMarks();
+         r.putMarks();
+         r.computeDisplay();
+
+
+	}
+}
+=========================================================================================================================
+                                                    NEXT QUESTION 
+=========================================================================================================================
+  
+Q. 75: Single Level Inheritance - Single Class
+QUESTION DESCRIPTION
+
+Write a Payroll application for Single Level Inheritance
+
+Hint:
+
+1. Create a class "SingleInheritance" and do the following in the data-members and method
+
+Static Data members
+a. name and gender of type String
+b. salary and age of type integer
+
+Method:
+
+Method name = getDetails
+Return Type = void
+Access Specifier = public
+Argument = No argument
+Usuage = Get the input of user such as; name, gender, age and salary.
+
+2. In Main class(TestClass) extend the base class "SingleInheritance"
+
+3. Create instance for "TestClass" as "tc" and access the getDetails() method.
+
+4. Print the name, gender, age and salary in the main method
+
+
+
+
+
+=========================================================================================================================
+
+CODE ;
+
+import java.util.*;
+import java.io.*;
+
+class SingleInheritance
+{
+    Scanner s = new Scanner(System.in);
+    static String name;
+    static String gender;
+    static int salary,age;
+    
+    public void getDetails()
+    {
+        name = s.nextLine();
+        gender = s.nextLine();
+        salary = s.nextInt();
+        age = s.nextInt();
+    }
+     
+}
+ 
+public class TestClass extends SingleInheritance
+{
+	public static void main(String[] args) 
+	{
+         TestClass  tc = new  TestClass();
+        tc.getDetails();
+         System.out.println("Name="+tc.name);
+         System.out.println("Gender="+tc.gender);
+         System.out.println("Age="+tc.salary);
+         System.out.println("Salary="+tc.age);
+
+	}
+}
+=========================================================================================================================
+                                                    NEXT QUESTION 
+=========================================================================================================================
+
+Q. 76: Payslip Generation
+QUESTION DESCRIPTION
+
+1. Create an interface as "Gross"
+
+Declare TA and DA as type double and initialize to "800.0" and "1500.0" respectively
+
+Declare a method as "gross_sal" with type void that takes no arguments in the interface
+
+2. Create a class "Employee" with data-member as "name" in String and basic_cal as "float"
+
+class Employee {
+String name;
+float basic_sal;
+
+Declare Parameterized Constructor that takes two arguments (String n, and float b) and assign the values to name and basic_sal respectively.
+
+Create a method display() and print the name and the basic salary of the employee
+
+3. Create a class "Salary" that extends "Employee" class and implements "Gross" interfaces
+
+Declare a variable "hra" of type float
+
+Create a Parematerized Constructor "Salary" that takes three arguments and call the super class
+
+Salary(String n, float b, float h)
+{
+super(n,b);
+hra=h;
+}
+
+Create a method disp() with no arguments and call the display() method and print the HRA of the employee
+
+Create an another method and gross_sal() method and calculate the gross salary of the employee by adding basic salary, TA, DA, HRA
+
+4. Create instance in the main class for "Salary" class with instance name as "s" that takes three arguments
+
+Call the disp() and the gross_sal() using the "Salary" class instance "s"
+
+
+
+=========================================================================================================================
+
+CODE ;
+
+
+
+import java.util.*;
+import java.io.*;
+import java.lang.*;
+
+interface Gross
+{
+    double TA = 800.0;
+    double DA = 1500.0;
+    void gross_sal();
+  
+}
+
+
+class Employee
+{
+    Scanner s = new Scanner(System.in);
+      static  String name;
+    static float  basic_sal;
+    
+    Employee(String n , float b)
+    {
+        
+         name = n;  
+      
+        basic_sal =b; 
+    }
+    
+    public void display()
+    {
+         System.out.println("Name of Employee="+name);
+         System.out.println("Basic Salary of Employee="+basic_sal);
+        
+    }
+     
+}
+
+class Salary extends Employee implements Gross  
+{
+Scanner s = new Scanner(System.in);
+
+  float hra ;
+ 
+ Salary(String n, float b, float h)  
+ {
+  super(n,b);
+  hra=h;
+ }
+ 
+ public void disp()
+ {
+   
+
+  display();
+  
+    System.out.println("HRA of Employee="+hra);
+ }
+ public void gross_sal()  
+ {
+  double gross_sal=basic_sal + TA + DA + hra;
+  System.out.println("TA of Employee="+TA);
+  System.out.println("DA of Employee="+DA);
+  System.out.println("Gross Salary of Employee="+gross_sal);
+ }
+    
+}
+
+ 
+
+
+public class TestClass
+{
+	public static void main(String[] args) 
+	{
+        Scanner sd = new Scanner(System.in);
+        String name = sd.nextLine();
+        int num = sd.nextInt();
+        int hra = sd.nextInt();
+        Salary s = new Salary(name , num ,hra) ;
+        s.disp();
+        s.gross_sal();
+      
+          
+	}
+}
+
+
+
+
+
+=========================================================================================================================
+                                                    NEXT QUESTION 
+=========================================================================================================================
+
+Q. 77: Summer Mango
+QUESTION DESCRIPTION
+
+1. Create an Interface with name "Mango"
+
+2. Declare a method in the interface as "display" with no arguments and return type as void
+
+3. Create a class "Summer" that implements "Mango" class
+
+4. Create a method display() of return type void that tales no arguments
+
+Display the message "Summer is famous for Mango Season"
+
+5. Create a class "Winter" that implements "Mango" class
+
+6. Create a method display() of return type void that tales no arguments
+
+Display the message "Winter is famous for Apple Season"
+
+7. In the main class create instance for Mango class as "m" for Summer class and Winter class as "w" for Winter Class
+
+8. Invoke the display method as "m.display()" first and the assign the instance of m to n using m=n
+
+9. Now invoke the same display method using "m.display()"
+
+
+
+
+=========================================================================================================================
+ATTENTION  : THIS CODE WON'T EVALUATE
+
+CODE ;
+
+import java.io.*;
+import java.util.*;
+interface Mango 
+{
+ 	   public void display();  
+}
+class Summer implements Mango
+{
+     public void display()
+    {
+     System.out.println("Summer is famous for Mango Season");
+    }
+}
+class Winter implements Mango 
+{
+	public void display()
+    {
+      System.out.println("Winter is famous for Apple Season");
+    }
+}
+public class TestClass 
+{
+	 public static void main(String[] args) { 
+     Mango m=new Summer();
+      Winter w = new Winter();
+      m.display();
+      m=w;
+      m.display();
+     }
+      
+     
+}
+
+=========================================================================================================================
+                                                    NEXT QUESTION 
+=========================================================================================================================
+
+Q. 78: Payslip Generation
+QUESTION DESCRIPTION
+
+1. Create an interface as "Gross"
+
+Declare TA and DA as type double and initialize to "800.0" and "1500.0" respectively
+
+Declare a method as "gross_sal" with type void that takes no arguments in the interface
+
+2. Create a class "Employee" with data-member as "name" in String and basic_cal as "float"
+
+class Employee {
+String name;
+float basic_sal;
+
+Declare Parameterized Constructor that takes two arguments (String n, and float b) and assign the values to name and basic_sal respectively.
+
+Create a method display() and print the name and the basic salary of the employee
+
+3. Create a class "Salary" that extends "Employee" class and implements "Gross" interfaces
+
+Declare a variable "hra" of type float
+
+Create a Parematerized Constructor "Salary" that takes three arguments and call the super class
+
+Salary(String n, float b, float h)
+{
+super(n,b);
+hra=h;
+}
+
+Create a method disp() with no arguments and call the display() method and print the HRA of the employee
+
+Create an another method and gross_sal() method and calculate the gross salary of the employee by adding basic salary, TA, DA, HRA
+
+4. Create instance in the main class for "Salary" class with instance name as "s" that takes three arguments
+
+Call the disp() and the gross_sal() using the "Salary" class instance "s"
+
+
+
+
+=========================================================================================================================
+
+CODE ;
+
+
+import java.util.*;
+import java.io.*;
+import java.lang.*;
+
+interface Gross
+{
+    double TA = 800.0;
+    double DA = 1500.0;
+    void gross_sal();
+  
+}
+
+
+class Employee
+{
+    Scanner s = new Scanner(System.in);
+      static  String name;
+    static float  basic_sal;
+    
+    Employee(String n , float b)
+    {
+        
+         name = n;  
+      
+        basic_sal =b; 
+    }
+    
+    public void display()
+    {
+         System.out.println("Name of Employee="+name);
+         System.out.println("Basic Salary of Employee="+basic_sal);
+        
+    }
+     
+}
+
+class Salary extends Employee implements Gross  
+{
+Scanner s = new Scanner(System.in);
+
+  float hra ;
+ 
+ Salary(String n, float b, float h)  
+ {
+  super(n,b);
+  hra=h;
+ }
+ 
+ public void disp()
+ {
+   
+
+  display();
+  
+    System.out.println("HRA of Employee="+hra);
+ }
+ public void gross_sal()  
+ {
+  double gross_sal=basic_sal + TA + DA + hra;
+  System.out.println("TA of Employee="+TA);
+  System.out.println("DA of Employee="+DA);
+  System.out.println("Gross Salary of Employee="+gross_sal);
+ }
+    
+}
+
+ 
+
+
+public class TestClass
+{
+	public static void main(String[] args) 
+	{
+        Scanner sd = new Scanner(System.in);
+        String name = sd.nextLine();
+        int num = sd.nextInt();
+        int hra = sd.nextInt();
+        Salary s = new Salary(name , num ,hra) ;
+        s.disp();
+        s.gross_sal();
+      
+          
+	}
+}
+
+
+
+=========================================================================================================================
+                                                    NEXT QUESTION 
+=========================================================================================================================
+
+
+Q. 79: Multiple Inheritance - Car bus
+QUESTION DESCRIPTION
+
+Implement Multiple Inheritance Using Java
+
+Constraints :
+
+1. Create an Interface with interface name as "Car" and another Interface as "Bus"
+
+2. In the interface Car declare variable name as "speed" and assign to value 60. Create a method with following constraints
+
+a. Method name = distanceTravelled
+b. Argument = No argument
+c. Return type = void
+d. Access Specifier = public
+
+3. In the interface Bus declare variable name as "distance" and assign to value 100. Create a method with following constraints
+
+a. Method name = speed
+b. Argument = No argument
+c. Return type = void
+d. Access Specifier = public
+
+4. Create a class "TestClass" that implements the interfaces and declare variable as "distanceTravelled" and "averageSpeed"
+Hint:
+class TestClass implements Car,Bus
+
+5. Define the method distanceTravelled and calculate the distance travelled as [speed * distance] and print the distance travelled.
+
+6. Define the method speed and calculate the "speed" as [distanceTravelled / speed ] and print the averageSpeed.
+
+7. In the main method (TestClass) create instance for "TestClass" with "v1" and access distanceTravelled and speed method.
+
+
+
+
+=========================================================================================================================
+CODE ;
+
+
+import java.io.*; 
+import java.util.*;
+interface Car
+{
+final int speed=60; 
+public void distanceTravelled();
+}
+interface Bus
+{
+final int distance=100; 
+public void speed();
+}
+class TestClass implements Car,Bus
+{
+int distanceTravelled,averageSpeed;
+public void distanceTravelled()
+{
+distanceTravelled = speed*distance;
+System.out.println(distanceTravelled); 
+}
+public void speed()
+{
+averageSpeed = distanceTravelled / speed;
+System.out.println(averageSpeed); 
+}
+public static void main(String[] args) 
+{ 
+try
+{
+TestClass v1=new TestClass(); 
+v1.distanceTravelled();
+v1.speed();
+}
+catch(Exception e)
+{
+}}
+
+}
+=========================================================================================================================
+                                                    NEXT QUESTION 
+=========================================================================================================================
+
+
+Q. 80: Sum of Divisors
+QUESTION DESCRIPTION
+
+1.Create an interface with the name "AdvancedArithmetic" with a method signature
+int divisor_sum(int n)
+
+2.Create a class called "MyCalculator" which implements the interface AdvancedArithmetic
+
+3.Do the operations for finding the sum of Divisors inside MyCalculator class.
+
+divisorSum function should take an integer as input and return the sum of all its divisors.
+For example divisors of 6 are 1, 2, 3 and 6, so divisor_sum should return 12.
+The value of n will be at most 1000.
+
+4.Create an object "my_calculator" for the class MyCalculator in the main method and
+
+5.Create a method ImplementedInterfaceNames as follows
+
+static void ImplementedInterfaceNames(Object o)
+
+To find the name of the interface MyCalculator implements and display it along with the sum of divisors result calculated using divisor_sum() method.
+
+Hint:
+Class[] theInterfaces = o.getClass().getInterfaces();
+for (int i = 0; i < theInterfaces.length; i++)
+String interfaceName = theInterfaces[i].getName();
+
+6.Print the interface name and the result of divisor_sum using System.out.println class.
+
+
+
+
+=========================================================================================================================
+CODE : 
+
+
+import java.util.*;
+interface AdvancedArithmetic{
+  int divisor_sum(int n);
+}
+
+class MyCalculator implements AdvancedArithmetic {
+    public int divisor_sum(int n) {
+        int sum = 0;
+        int sqrt = (int) Math.sqrt(n);
+        for (int i = 1; i <= sqrt; i++) {
+            if (n % i == 0) {  
+                sum += i + n/i;  
+            }
+        }
+         
+        if (sqrt * sqrt == n) {
+            sum -= sqrt;
+        }
+        return sum;
+    }
+}
+
+class TestClass{
+    public static void main(String []args){
+        MyCalculator my_calculator = new MyCalculator();
+        System.out.print("I implemented ");
+        ImplementedInterfaceNames(my_calculator);
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.print(my_calculator.divisor_sum(n) + "\n");
+      	sc.close();
+    }
+    
+    static void ImplementedInterfaceNames(Object o){
+        Class[] theInterfaces = o.getClass().getInterfaces();
+        for (int i = 0; i < theInterfaces.length; i++){
+            String interfaceName = theInterfaces[i].getName();
+            System.out.println(interfaceName);
+        }
+    }
+}
+=========================================================================================================================
+                                                    OVER 
+=========================================================================================================================
+
+
+
+
+ 
+
